@@ -1,0 +1,8 @@
+prefix=/home/cvg/rl-obstacle-avoidance/devel
+
+Name: rl_env
+Description: Description of rl_env
+Version: 0.0.0
+Cflags: -I/home/cvg/rl-obstacle-avoidance/src/rl-texplore-ros-pkg/src/rl_env/include
+Libs: -L/home/cvg/rl-obstacle-avoidance/devel/lib 
+Requires: message_runtime droneMsgsROS gazebo_msgs geometry_msgs

@@ -1,0 +1,15 @@
+(cl:defpackage rl_msgs-msg
+  (:use )
+  (:export
+   "<RLSTATEREWARD>"
+   "RLSTATEREWARD"
+   "<RLEXPERIMENTINFO>"
+   "RLEXPERIMENTINFO"
+   "<RLENVSEEDEXPERIENCE>"
+   "RLENVSEEDEXPERIENCE"
+   "<RLENVDESCRIPTION>"
+   "RLENVDESCRIPTION"
+   "<RLACTION>"
+   "RLACTION"
+  ))
+

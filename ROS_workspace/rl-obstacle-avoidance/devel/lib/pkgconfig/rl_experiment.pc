@@ -1,0 +1,8 @@
+prefix=/home/cvg/rl-obstacle-avoidance/devel
+
+Name: rl_experiment
+Description: Description of rl_experiment
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/cvg/rl-obstacle-avoidance/devel/lib 
+Requires: message_runtime

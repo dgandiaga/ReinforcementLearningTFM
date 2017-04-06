@@ -1,0 +1,8 @@
+prefix=/home/cvg/rl-obstacle-avoidance/install
+
+Name: rl_env
+Description: Description of rl_env
+Version: 0.0.0
+Cflags: -I/home/cvg/rl-obstacle-avoidance/install/include
+Libs: -L/home/cvg/rl-obstacle-avoidance/install/lib 
+Requires: message_runtime droneMsgsROS gazebo_msgs geometry_msgs
