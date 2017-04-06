@@ -1,0 +1,278 @@
+% !TeX spellcheck = es_ES
+\documentclass[12pt,a4paper]{book}
+\usepackage[a4paper,left=3cm, right=3cm]{geometry}
+%\usepackage[a4paper, total={6in, 8in}]{geometry}
+\usepackage{thesis}
+\usepackage[spanish]{babel}
+\usepackage[latin2]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{epsfig}
+\usepackage{url}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{makeidx}
+\usepackage{fancyhdr}
+\usepackage{pseudocode}
+\usepackage{subfigure}
+\usepackage{color,supertabular}
+\usepackage{verbatim}
+\usepackage{placeins}
+\usepackage{diagbox}
+%\usepackage{pdfsync} 
+
+%Margins
+%------------------------------------------------------------------------------
+%\oddsidemargin  0.0in
+%\evensidemargin 0.0in
+%\textwidth      6.5in
+%\headheight     0.0in
+\topmargin      0.1in
+\textheight=22cm
+
+%\addtolength{\oddsidemargin}{-.875in}
+%\addtolength{\evensidemargin}{-.875in}
+%\addtolength{\textwidth}{1.75in}
+%\addtolength{\topmargin}{-.875in}
+%\addtolength{\textheight}{1.75in}
+%------------------------------------------------------------------------------
+
+\graphicspath{{images/}}
+
+%------------------------------------------------------------------------------
+%\makeindex
+%------------------------------------------------------------------------------
+\renewcommand{\MakeUppercase}{}
+\fancyhf{}
+%\fancyhead[LE,RO]{\thepage}
+\fancyfoot[C]{\thepage}
+\fancyhead[RE]{\rightmark}
+\fancyhead[LO]{\leftmark}
+\fancypagestyle{bibliografia}{
+  \fancyhead{}
+  \fancyhead[LE,RO]{\thepage}
+  \fancyhead[RE,LO]{Bibliograf?­a}
+}
+\fancypagestyle{alfabetico}{
+  \fancyhead{}
+  \fancyhead[LE,RO]{\thepage}
+  \fancyhead[RE,LO]{\'Indice alfab??tico}
+}
+%------------------------------------------------------------------------------
+%\addtolength{\textheight}{2cm}
+%\addtolength{\voffset}{-1cm}
+%------------------------------------------------------------------------------
+\newcommand{\tr}{\mathop{\rm tr }}
+\newcommand{\dif}{\mathrm d}
+\newcommand{\trp}{\mathrm T}
+\newcommand{\Grad}{\mathop{\rm Grad }\nolimits}
+\newcommand{\grad}{\mathop{\rm grad }\nolimits}
+\newcommand{\adj}{\mathop{\rm adj }}
+\newcommand{\D}{\mathop{\rm D}\nolimits}
+\renewcommand{\div}{\mathop{\rm div }}
+%------------------------------------------------------------------------------
+\newcommand{\aborrador}{0} % borrador: 1, definitivo: 0
+\definecolor{gris}{rgb}{0.8,0.8,0.8}
+\newcommand{\borrador}{
+  \ifthenelse{\equal{\aborrador}{1}}{
+    \setlength{\unitlength}{1mm}
+    \begin{picture}(0,0)
+      \put(5,-230){
+        \turnbox{55}{
+           \scalebox{6}{
+             \textcolor{gris}{ \bf\Huge 
+               $\overline{\mbox{\underline{Borrador}}}$
+             }
+           }
+        }
+      } 
+    \end{picture}
+  }{}
+}
+%------------------------------------------------------------------------------
+\tesisautor{Carlos Sampedro P\'erez}
+\gradoautor{Ingeniero T\'ecnico Electr\'onico;                                             Ingeniero T\'ecnico Agr\'icola}
+\tesistipo{Trabajo Fin de M\'aster}
+\tesisasesor{Pascual Campoy Cervera}
+\tesismes{Mayo}
+\tesisanio{2014}
+\tesisciudad{Madrid}
+\tesistitulo{Inspecci\'on Inteligente de L\'ineas El\'ectricas A\'ereas en el Espectro Visible}
+
+%##############################################################################
+\begin{document}
+
+%\renewcommand{\figurename}{\small\bf Figura}
+%\renewcommand{\tablename}{\small\bf Tabla}
+\definecolor{gris-chapter}{rgb}{0.6,0.6,0.8}
+%\newcommand{\logo}{
+  %\includegraphics[bb = 118 521 247 655, clip]{ultima-hoja/ultima-hoja.eps}}
+\renewcommand{\thechapterjrs}{
+   \scalebox{4}{
+      \textcolor{gris-chapter}{ 
+         \bf\Huge \thechapter
+      }
+   }
+}
+%##############################################################################
+\pagestyle{empty}
+\addtolength{\hoffset}{0.5cm}
+\tesisportada
+\cleardoublepage
+\addtolength{\hoffset}{-0.5cm}%##############################################################################
+\titlepage
+\renewcommand{\thepage}{\Roman{page}}
+\tesiscontraportada
+\cleardoublepage
+%------------------------------------------------------------------------------
+%\tesispagfirmas
+%\cleardoublepage
+%------------------------------------------------------------------------------
+\begin{tesisdedicatoria}
+
+Esta tesis esta dedicada: 
+\\[3ex]
+A mi familia por su apoyo incondicional durante el desarrollo de presente Trabajo Fin de Máster.
+\\[5ex]
+A mis compa\~neros del \textit{Grupo de Visión por Computador} de la ETSII, por su colaboración y aporte de ideas, y en especial a Pascual Campoy por la oportunidad de participar en el presente Trabajo Fin de Máster dentro del grupo.
+\\[5ex]
+A las empresas espa\~nolas Gas Natural Unión Fenosa, y Prysma, por el suministro de imágenes y vídeos relativos a inspecciones aéreas reales, dentro del proyecto $R\&D$ de INNPACTO: ``I2L, Inspección Inteligente de Líneas". 
+
+
+\end{tesisdedicatoria}
+%------------------------------------------------------------------------------
+\newpage\pagestyle{empty}\cleardoublepage\pagestyle{fancy}
+\begin{tesisresumen}
+
+
+En la actualidad, las empresas de distribución de energía eléctrica invierten grandes cantidades de dinero en el proceso de inspección de las líneas eléctricas aéreas así como en la posterior evaluación y análisis de los datos adquiridos durante la inspección en busca de defectos como: puntos calientes, rotura de aisladores, venas rotas en las catenarias de distribución, oxidaciones de las estructuras, etc.
+ 
+El objetivo del presente Trabajo Fin de Máster, dentro del proyecto de INNPACTO, denominado ``I2L: Inspección Inteligente de Líneas", es automatizar el proceso de localización y reconocimiento de las torres eléctricas dentro del plano de la imagen en el espectro visible; que servirá como paso previo a la automatización del proceso de detección de defectos o fallas en dichas instalaciones. 
+
+En la primera parte del presente Trabajo Fin de Máster, se ha dise\~nado una Estrategia de actuación con la finalidad de detectar defectos en los componentes de las torres eléctricas como: grapas, cadenas de aisladores, amortiguadores, etc. Para ello, la estrategia desarrollada se ha dividido en 5 módulos claramente diferenciados por su funcionalidad:
+
+\begin{itemize}
+	\item Módulo 1: Este módulo es el encargado de localizar la torre eléctrica en el plano de la imagen.
+	
+	\item Módulo 2: Encargado de corregir los resultados suministrados por el módulo 1, en base a algoritmos de \textit{tracking} y la información procedente de otros sensores como IMU, GPS, etc.
+	
+	\item Módulo 3: Este módulo se encarga de clasificar el tipo de torre que ha sido localizada mediante los módulos anteriores.
+	
+	\item Módulo 4: Encargado de localizar en el plano de la imagen los componentes de la torre que requieren ser inspeccionados como: cadenas de aisladores, grapas, amortiguadores, etc.
+	
+	\item Módulo 5: Este módulo será el encargado de detectar y analizar los defectos en los componentes localizados por el módulo 4.
+\end{itemize}
+
+
+En la segunda parte del presente Trabajo Fin de Máster se ha realizado una revisión profunda de las técnicas de visión por computador aplicadas a la segmentación de objetos como: Transformada de Hough, Umbralización, \textit{Grabcut}, etc; y en base a ellas, se han desarrollado algoritmos nuevos aplicados a la segmentación de las torres eléctricas en el espectro visible, como paso previo a la detección de defectos en las mismas. Entre estos algoritmos destacan la aplicación de máscaras propias para detección de bordes, que mejoran el comportamiento de detectores consagrados como \textit{Sobel}, \textit{Scharr}, etc, con el objeto de realzar la estructura vertical de la torre eléctrica (característica de este tipo de construcciones), para posteriormente detectar dicha estructura vertical mediante la Transformada de Hough optimizada para la detección vertical. También se destaca la aplicación de algoritmos que no son propiamente para segmentación, pero que modificados apropiadamente proporcionan resultados francamente buenos. Este es el caso del algoritmo de \textit{Inpainting}, empleado para restauración de imágenes, que modificado conveniente en el presente Trabajo permite segmentar la torre eléctrica de forma precisa. También se exploran otros algoritmos que permiten la segmentación de la torre eléctrica teniendo en cuenta la secuencia temporal de los \textit{frames} dentro del vídeo, así como la estrategia de vuelo seguida por el helicóptero en su vuelo de inspección. Este es el caso del algoritmo de segmentación desarrollado basado en el empleo del \textit{Flujo Óptico} (\textit{Optical Flow}), que permite caracterizar el movimiento relativo de los píxeles de un \textit{frame} a otro en la secuencia del video de inspección, permitiendo la segmentación de la torre eléctrica teniendo en cuenta la diferencia de flujo óptico, tanto en módulo como en argumento, entre píxeles del fondo y píxeles pertenecientes a la torre eléctrica. 
+
+
+
+En la tercera parte del presente trabajo se han explorado y aplicado satisfactoriamente técnicas de Machine Learning basadas en aprendizaje supervisado para la detección de la torre eléctrica dentro del plano de la imagen, así como para la identificación del tipo de torre. Esta última característica introducida a nuestro sistema permite la localización de las regiones de interés de la torre a ser inspeccionadas, ya que dependiendo del tipo de torre eléctrica los componentes a inspeccionar pueden variar en cuanto su posición en la torre, como por ejemplo las cadenas de aisladores.
+Para la construcción de clasificadores que permitan la detección de la torre eléctrica dentro del plano de la imagen y la identificación del tipo de torre, se ha elaborado una base datos de imágenes que únicamente contienen o bien torre eléctrica o bien fondo. Para la adquisición de estas imágenes se han desarrollado dos Interfaces Gráficas de Usuario que permiten el etiquetado y adquisición de las muestras que serán empleadas para el entrenamiento y evaluación de los clasificadores contemplados.
+Para el entrenamiento de los clasificadores se ha empleado el descriptor denominado HOG (\textit{Histograms of Oriented Gradients}) ampliamente utilizado en la actualidad para reconocimiento de patrones, que se basa en la división de la imagen en celdas, calculando el histograma de gradientes correspondiente a cada píxel de la celda, y normalizando posteriormente por bloques de celdas.
+
+Una vez recogidas las muestras de entrenamiento y calculado el descriptor de HOG asociado a cada una de ellas ya se está en disposición de entrenar el clasificador correspondiente. A este respecto, y a modo de análisis, se han evaluado 4 clasificadores tanto para la etapa de Detección (detección de la torre dentro del plano de la imagen, en la que el clasificador distinguirá entre las clases \textit{Fondo} y \textit{Torre}) como para la etapa de Clasificación (identificación del tipo de torre, en la que el clasificador entrenado distinguirá entre las 4 clases de torres eléctricas etiquetadas, 2 de ellas correspondientes a torres eléctricas de alta tensión y 2 de ellas correspondientes a torres de media tensión).
+Los clasificadores que han sido entrenados y evaluados en el presente Trabajo Fin de Máster han sido:
+
+\begin{itemize}
+	\item L2 Regularized Logistic Regression.
+	\item SVM (\textit{Support Vector Machines}) con kernel Lineal.
+	\item SVM con kernel RBF(\textit{Radial Basis Function}).
+	\item Red Neuronal MLP (\textit{Multi-Layer Perceptron}).
+\end{itemize}
+
+Tras entrenar y evaluar los distintos clasificadores, se han obtenido rendimientos muy altos tanto en la etapa de Detección como en la de Clasificación, llegando incluso al 99\% con clasificadores SVM con kernel RBF, y siendo muy altos en el resto de clasificadores, alcanzando el 98\% en algunos entrenamientos. 
+
+
+En la última parte del documento se aplican los clasificadores entrenados previamente, en imágenes completas correspondientes a inspecciones aéreas reales. Para ello, en la etapa de detección se escanea la imagen mediante un algoritmo de ventanas deslizantes o \textit{Sliding Window}, en donde cada ventana o subimagen es clasificada como \textit{Torre} o \textit{Fondo} por el clasificador empleado en la etapa de Detección.
+
+Una vez finalizado el escaneo de la imagen, se propone un algoritmo de \textit{postprocesamiento} basado en la integración de los algoritmos desarrollados en base a técnicas de visión por computador con los algoritmos desarrollados en base a técnicas de \textit{machine learning}.
+Este algoritmo de \textit{postprocesamiento} se basa en el empleo de técnicas \textit{clustering} mediante el algoritmo \textit{Kmeans}, tanto en el espacio de Hough como en el espacio de ventanas clasificadas positivamente por el clasificador empleado en la etapa de Detección, para finalmente hacer converger ambos \textit{clusters} de forma iterativa, hacia la solución final que permite localizar la torre eléctrica en el plano de la imagen.
+
+Una vez localizada la torre eléctrica en el plano de la imagen mediante su ROI (\textit{Region Of Interest}) correspondiente, se aplica el clasificador correspondiente a la etapa de Clasificación para identificar el tipo de torre.
+
+
+Los resultados obtenidos muestran como la estrategia propuesta consigue resultados satisfactorios contando con relativamente pocas muestras de entrenamiento y evaluación para los clasificadores (1600 muestras de \textit{Fondo} y 1600 muestras de \textit{Torre}, y dentro de estas últimas, 400 correspondientes a cada tipo de torre). Esto permite afrontar el trabajo futuro con optimismo, en el que la adquisición de nuevas muestras de entrenamiento, y el avance en los módulos restantes, podrán permitir alcanzar bastantes de los objetivos propuestos para el proyecto.
+Las técnicas explicadas anteriormente se han aplicado en imágenes de inspecciones aéreas reales tomadas desde un helicóptero para torres eléctricas de muy diversos tipos y bajo condiciones lumínicas muy variables, lo que ha permitido validar ampliamente el sistema desarrollado en el presente Trabajo.
+
+
+
+\end{tesisresumen}
+
+
+\newpage\pagestyle{empty}\cleardoublepage\pagestyle{fancy}
+%----------------------------------------------------------------------------------------------------
+\begin{abstract}
+
+
+Electricity companies have several regulatory as well as financial reasons for performing regular inspections of the power line infrastructure. The faults and defects in the power line equipment are a big cause of unplanned power outages, as well as present a public safety risk. Consequently, these companies spend a significant budget on the power line inspections, and continuously pursue new approaches to reduce the inspection costs.
+
+For this reason, there is a increasing aim from electric companies to try to automatize the power line inspection process in order to cheapen this process.
+
+The aim of this Final Master Thesis is to automatize the Localization and Recognition process of the electric towers inside real inspection images, which can be seen as the starting point for identifying and analyse faults.
+
+In the first part of this Thesis, several computer vision algorithms have been developed based on state of the art computer vision techniques and applied successfully to the presented problem. Some of this techniques are: vertical structure detection using our own edge detectors and an optimized version of Hough Transform for vertical detection, electric tower segmentation using growing region algorithms, Optical Flow for the purpose of segmenting the electric tower taking into account de difference in relative movement between consecutive frames of the video sequence, etc.
+
+In the second part of this Thesis, several Machine Learning algorithms have been developed and applied successfully for the purpose of localizing electric towers and its components. Some of this techniques are: Logistic Regression, Support Vector Machines, MLP (Multilayer Perceptron) Neural Networks, etc.
+
+In the final part of the Thesis we integrate the two previous parts and make a general strategy for approaching the automation process explained above. 
+
+The techniques discussed above have been applied to real aerial images taken from helicopter inspections, allowing to validate the system presented in this Project in a robust manner.  
+
+
+\end{abstract}
+%------------------------------------------------------------------------------
+\tableofcontents
+\newpage\pagestyle{empty}\cleardoublepage\pagestyle{fancy}
+%..............................................................................
+\addcontentsline{toc}{chapter}{\'Indice de figuras}
+\renewcommand{\listfigurename}{\vspace*{-0.5cm}\'Indice de figuras}
+\listoffigures
+\newpage\pagestyle{empty}\cleardoublepage\pagestyle{fancy}
+%..............................................................................
+\addcontentsline{toc}{chapter}{\'Indice de tablas}
+\renewcommand{\listtablename}{\vspace*{-0.5cm}\'Indice de tablas}
+\listoftables
+\newpage\pagestyle{empty}\cleardoublepage\pagestyle{fancy}
+%------------------------------------------------------------------------------
+%##############################################################################
+\setcounter{page}1\renewcommand{\thepage}{\arabic{page}}
+\include{cap1}
+\newpage\pagestyle{empty}\cleardoublepage\pagestyle{fancy}
+%------------------------------------------------------------------------------
+\include{cap2}
+\newpage\pagestyle{empty}\cleardoublepage\pagestyle{fancy}
+%%------------------------------------------------------------------------------
+\include{cap3}
+\newpage\pagestyle{empty}\cleardoublepage\pagestyle{fancy}
+%%------------------------------------------------------------------------------
+\include{cap4}
+\newpage\pagestyle{empty}\cleardoublepage\pagestyle{fancy}
+%%------------------------------------------------------------------------------
+\include{cap5}
+\newpage\pagestyle{empty}\cleardoublepage\pagestyle{fancy}
+%%------------------------------------------------------------------------------
+\include{cap6}
+\newpage\pagestyle{empty}\cleardoublepage\pagestyle{fancy}
+%%------------------------------------------------------------------------------
+\include{cap7}
+\newpage\pagestyle{empty}\cleardoublepage\pagestyle{fancy}
+%------------------------------------------------------------------------------
+
+%##############################################################################
+%\appendix
+%\include{appendix}
+%\newpage\pagestyle{empty}\cleardoublepage\pagestyle{fancy}
+%------------------------------------------------------------------------------
+%\bibliographystyle{apalike}
+\bibliographystyle{ieeetr}
+\bibliography{tesisMaster}
+%------------------------------------------------------------------------------
+\mbox{}
+\vfill
+\cleardoublepage
+
+\end{document}

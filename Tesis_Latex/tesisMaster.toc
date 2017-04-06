@@ -1,0 +1,13 @@
+\select@language {spanish}
+\contentsline {chapter}{Dedicatoria}{III}
+\contentsline {chapter}{Resumen}{V}
+\contentsline {chapter}{Abstract}{IX}
+\contentsline {chapter}{\'Indice de figuras}{XIII}
+\contentsline {chapter}{\'Indice de tablas}{XV}
+\contentsline {chapter}{\numberline {1}Introducci\'on}{1}
+\contentsline {chapter}{\numberline {2}Estado del Arte}{3}
+\contentsline {chapter}{\numberline {3}Estrategia propuesta.}{5}
+\contentsline {chapter}{\numberline {4}Algoritmos de Procesamiento de datos basados en Visi\'on por Computador.}{7}
+\contentsline {chapter}{\numberline {5}Algoritmos de Procesamiento de datos basados en t\'ecnicas de \textit {Machine Learning}.}{9}
+\contentsline {chapter}{\numberline {6}Conclusiones y Trabajo Futuro.}{11}
+\contentsline {chapter}{\numberline {7}Planificaci\'on y Presupuesto.}{13}

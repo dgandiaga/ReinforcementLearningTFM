@@ -1,0 +1,17 @@
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdftex 2014.5.10)  28 MAY 2014 20:45
+entering extended mode
+**C:/Users/Carlos/Desktop/MÁSTER*EN*AUTOMÁTICA*Y*ROBÓTICA/TESIS*DE*MÁSTER/T
+esis_Latex/thesis.sty
+
+("C:/Users/Carlos/Desktop/MÁSTER EN AUTOMÁTICA Y ROBÓTICA/TESIS DE MÁSTER/T
+esis_Latex/thesis.sty"
+! Undefined control sequence.
+l.128 \typeout
+              {***************************************************}
+? 
+! Emergency stop.
+l.128 \typeout
+              {***************************************************}
+End of file on the terminal!
+
+!  ==> Fatal error occurred, no output PDF file produced!

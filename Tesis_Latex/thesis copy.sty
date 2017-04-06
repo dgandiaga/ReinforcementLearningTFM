@@ -1,0 +1,346 @@
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%
+%%% Archivo: thesis.sty, version 1.0, Octubre de 2003
+%%% =======================================================
+%%%
+%%% Ultima modificacion:  de 2003.
+%%% -------------------------------------------
+%%%
+%%% Copyright (c) 2003 por Luis Mejias.  Derechos reservados.
+%%% Este archivo es gratuito y puede ser modificado o distribuido siempre y
+%%% cuando se cumplan las siguientes condiciones:
+%%%
+%%% 1. Este aviso de copyright se mantenga sin modicarlo en todas las copias
+%%%    modificadas.
+%%% 2. Si alguien modifica este archivo, NO DEBERA utilizar el nombre original
+%%%    de este archivo.
+%%%
+%%% Autor:  Luis Mejias
+%%%        luis.mejias@upm.es
+%%%        
+%%%        
+%%%
+%%% En este archivo se definen macros utilizadas para preparar la tesis doctoral para el
+%%% Departamento de Automatica,Ingenieria Electronica e Informatica Indutrial.
+%%% ETSI Industriales UPM. Madrid  
+%%% Ha sido probado en linux usando Tex (Web2C 7.2.1). 
+%%% Si ud. encuentra algo que no cumpla con las especificaciones o con algun
+%%% paquete de macros para LaTeX, por favor envie un mensaje a
+%%% <luis.mejias@upm.es> y tratare de resolver el problema.
+%%%
+%%% Uso:
+%%% ====
+%%%
+%%% Para utilizar este archivo incluya el mismo como un paquete en el preambulo:
+%%%
+%%% \documentclass[...]{book}
+%%% \usepackage{theisis}
+%%%
+%%% 
+%%% 
+%%%
+%%% Nombres de los comandos:
+%%% ========================
+%%%
+%%% TODOS los comandos utilizados en este archivo que se utilizan para
+%%% formatear la tesis comienzan con ``tesis'' (por ejemplo, \tesisautor).  El
+%%% valor de dichos comandos se puede cambiar indicando el cambio despues del
+%%% comando y entre llaves (``{valor del comando}''), por ejemplo:
+%%%
+%%% \tesisautor{Nombre ApellidoMaterno ApellidoPaterno}
+%%%
+%%% despues del comando \usepackage.
+%%%
+%%% La siguiente lista de variables relacionadas con el estilo de tesis, asi
+%%% como sus valores default:
+%%%
+%%% \autor           %% Nombre del autor; 
+%%% \mes             %% Mes de graduacion;
+%%% \anio            %% Anio de graduacion;
+%%% \titulo          %% Titulo de la tesis; 
+%%% \tamanio_titulo  %% Tamanio del titulo; 
+%%% \grado_autor     %% Grados previos del autor; 
+%%% \director_1      %% Tutor de tesis;
+%%% \director_2      %% Tutor de tesis;
+%%% \pais            %% Pais de estudios:
+%%% \copyright       %% Nombre de quien tiene el copyright;(\autor)
+%%% \tesistipo       %% Tipo de tesis; default: "Tesis".
+%%% \tesistipotamanio %% Tama&o de \tesistipo; default: \large.
+%%% \grado_optado    %% Grado que se pretende; 
+%%% \siglas_grado_optado           %% Siglas de \tesisgrado; default: "M.C.".
+%%% \presidente_tribunal   %% Nombre del presidente del tribunal
+%%% \vocal_1          %% Nombre primer vocal
+%%% \vocal_2         %% Nombre segundo vocal
+%%% \vocal_3         %% Nombre tercer vocal
+%%% \programa_phd    %% Nombre del Programa de doctorado
+%%% \campus     %% campus o escuela 
+%%% \tesisreconocencabezado
+%%%                  %% Titulo de la pagina de reconocimientos; default:
+%%%                  %% "Reconocimientos". 
+%%% \tesisreconocencabezadotamanio
+%%% \tesisestudiante %% Nombre del autor con grados previos; default:
+%%%                  %% "\tesisautorgradosprevios \tesisautor".
+%%% \tesisdedicatoria %% Persona o cosa a quien se dedica;
+%%%                   %% default: "A mi mismo". :-)
+%%%
+%%% La mayoria de los valores default satisfaceran los requerimientos del
+%%% para una tesis; sin embargo, el usuario debera MODIFICAR, por lo
+%%% menos, los siguientes comandos:
+%%%
+%%% \tesisautor
+%%% \tesismes
+%%% \tesisanio
+%%% \tesistitulo
+%%% \tesisautorgradosprevios
+%%% \tesisasesor
+%%% \tesisasesor
+%%% \tesisasesor
+%%% \tesisdireccionautor
+%%% \tesisespecialidad
+%%%
+%%% Ademas de los comandos anteriores, los siguientes comandos se proporcionan
+%%% para generar las secciones opcionales de la tesis:
+%%%
+%%% \tesispaginadr       %% Genera la pagina de copyright.
+%%% \tesisportada        %% Genera la portada.
+%%% \tesispagfirmas      %% Genera la pagina de firmas.
+%%% \tesispagdedicatoria %% Genera la pagina de dedicatoria.
+%%%
+%%% Tambien hay algunos ambientes para generar texto en parrafos:
+%%%
+%%% tesisreconocimientos %% Texto de los reconocimientos.
+%%% tesisresumen         %% Texto del resumen.
+%%% tesisautorvita       %% Texto de la vita del autor.
+%%%
+%%% Adiciones:
+%%% ==========
+%%%
+%%% El siguiente comando se proporciona solo para pruebas.  Debe de ir en el
+%%% preambulo (antes del \begin{document}).
+%%%
+%%% \tesisborrador       %% Imprime la hora y fecha en la parte superior
+%%%                      %% de la pagina.
+%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\typeout{***************************************************}
+\typeout{* \space Estilo para Tesis para el DISAM, ETSII UPM}
+\typeout{* \space Version 1.0, Oct 2002                    }
+\typeout{* \space Escrito por Luis Mejias                  }
+\typeout{* \space Grupo de vision                         }
+\typeout{* \space DISAM UPM                               }
+\typeout{***************************************************}
+
+
+
+%Modificar despues de aqui en adelante para definir nuevos comandos
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Define comandos para usar en la portada, contraportada, etc
+%
+%
+%
+%
+\def\tesistitulo#1{\gdef\@tesistitulo{{\bfseries\Large #1}}}\tesistitulo{T\'{\i}tulo de la tesis}
+\def\gradoautor#1{\gdef\@gradoautor{#1}}  \gradoautor{ No}
+\def\tesisautor#1{\gdef\@tesisautor{#1}}  \tesisautor{No hay autor}
+\def\tesistipo#1{\gdef\@tesistipo{#1}}  \tesisautor{Tesis Doctoral}
+\def\tesismes#1{\gdef\@tesismes{#1}}  \tesismes{no}
+\def\tesisanio#1{\gdef\@tesisanio{#1}} \tesisanio{2005}
+\def\tesisciudad#1{\gdef\@tesisciudad{#1}} \tesisciudad{Madrid}
+\newcommand{\@tesiscomite}{\textbf{\Large Tribunal}}
+\gdef\@univ{Universidad Polit\'ecnica de Madrid}
+\gdef\@escuela{Escuela T\'ecnica Superior De Ingenieros Industriales}
+\gdef\@dept{Departamento de Autom\'atica, Ingenier\'ia Electr\'onica e Informatica Industrial }
+\gdef\@mast{M\'aster en Autom\'atica y Rob\'otica}
+
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Crea la portada de la tesis usando algunos de los 
+% comandos creados anteriorments, etc----------
+\newcommand{\tesisportada}{
+%\borrador
+\begin{center}
+\includegraphics[height=2.5cm]{upm.jpg}\hspace{3cm}
+\includegraphics[height=2.5cm]{etsii.jpg}\par\vspace{0.5cm}
+\Large\textbf{\@univ}\\
+\Large\@escuela\\
+\par\vspace{2.5cm}
+\begin{minipage}{\textwidth}
+\begin{center}
+\Large \textbf{\@tesistitulo}
+\end{center}
+\end{minipage}\par\vspace{2.5cm}
+{\Large\textbf{\@tesistipo}}\par\vspace{2.5cm}
+{\Large\textbf{\@tesisautor}}\par
+{\Large\@gradoautor}\par\vspace{3.0cm}
+{\Large\textbf{\@tesisanio } }
+\end{center}
+\newpage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Crea contraportada mismo estilo
+%
+\def\tesisasesor#1{\gdef\@tesisasesor{#1}} \tesisasesor{Asesor Principal}
+\newcommand{\tesiscontraportada}{
+\begin{center}
+\includegraphics[height=2.5cm]{upm.jpg}\hspace{3cm}
+\includegraphics[height=2.5cm]{etsii.jpg}\par\vspace{0.5cm}
+\Large \@escuela \\
+\Large \@univ\par\vspace{1.5cm}
+\begin{minipage}{\textwidth}
+\begin{center}
+\Large \textbf {\@tesistitulo}
+\end{center}
+\end{minipage}\par\vspace{1cm}
+{\bf \@tesistipo} \par\vspace{1cm}
+ Autor:\\ 
+ {\bf \@tesisautor} \\
+ {\Large\@gradoautor\par\vspace{0.2cm}}
+ Director:\\
+ {\bf \@tesisasesor}\\
+ Doctor Ingeniero Industrial\par\vspace{0.6cm}
+{\Large\textbf{\@tesisanio } }
+\end{center}
+\newpage}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Crea Pagina de firmas
+%
+
+\newcommand{\tesispagfirmas}{
+  \thispagestyle{empty}
+    \begin{center}
+        Titulo:\\
+        {\lowercase \@tesistitulo} \par\vspace{0.2cm}
+         Autor:\\
+         \@tesisautor\\
+         \@gradoautor \par\vspace{0.2cm}
+        
+{\raggedright Tribunal nombrado por el Mgfco. y Excmo. Sr Rector de la Universidad
+  Polit\'ecnica de Madrid el d\'ia.........de...................de 2006\\[5mm]}
+ 
+{\raggedright \@tesiscomite\\}
+
+\begin{tabular}{lll}
+&&\\ Presidente &:&  NOMBRE APELLIDO\\
+&&\\ Vocal &:&  NOMBRE APELLIDO\\
+&&\\ Vocal &:&  NOMBRE APELLIDO\\
+&&\\ Vocal &:&  NOMBRE APELLIDO\\
+&&\\ Secretario &:&  NOMBRE APELLIDO\\
+&&\\ Suplente &:&  NOMBRE APELLIDO\\
+&&\\ Suplente &:&  NOMBRE APELLIDO\\
+\end{tabular}
+\par\vspace{0.2cm}
+
+{\raggedright Realizado el acto de lectura y defensa de la tesis el d\'ia ........... de ................ de 2006.\\[2mm]}
+{\raggedleft calificaci\'on de la Tesis......\\[5mm]}
+{\raggedright El Presidente: \hspace{50mm} Los Vocales: \\[5mm]}
+{\raggedright El Secretario:\\}
+\end{center}
+
+\newpage}
+ %%%%%%%%%%%%      fin pagina de firmas   %%%%%%%%%%%%%%%%%%%%%
+     
+%----------------------------------------------------
+%%%
+%%% Comando tomado de book.cls, (c) LaTeX3 Project.
+%%% Modificado para colocar el numero del capitulo
+%---------------------------------------------------- 
+      
+\newcommand{\thechapterjrs}{\thechapter}
+\def\@makechapterhead#1{%
+  \vspace*{50\p@}%
+  {\parindent \z@ \raggedright \normalfont
+    \ifnum \c@secnumdepth >\m@ne
+      \if@mainmatter
+        \huge\bfseries {\LARGE \@chapapp}\space 
+        \hspace{-1cm} \thechapterjrs
+        \par\nobreak
+        \vskip 20\p@
+      \fi
+    \fi
+    \interlinepenalty\@M
+    \Huge \bfseries #1\par\nobreak
+    \vskip 40\p@
+  }}
+\def\@schapter#1{\if@twocolumn
+                   \@topnewpage[\@makeschapterhead{#1}]%
+                 \else
+                   \@makeschapterhead{#1}%
+                   \@afterheading
+                 \fi}
+\def\@makeschapterhead#1{%
+  \vspace*{50\p@}%
+  {\parindent \z@ \raggedright
+    \normalfont
+    \interlinepenalty\@M
+    \Huge \bfseries  #1\par\nobreak
+    \vskip 40\p@
+  }}
+  
+  %%%%%%%%%%    fin numero de capitulo   %%%%%%%%%%%  
+  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Comando para generar la pagina de dedicatoria.
+%
+ \newenvironment{tesisdedicatoria}{
+  \thispagestyle{empty}
+    {\Huge \bf Agradecimientos}
+    \vspace*{50\p@}
+
+         \@mkboth{\uppercase{Dedicatoria}}
+                 {\uppercase{Dedicatoria}}%}
+     \addcontentsline{toc}{chapter}{Dedicatoria}
+     }
+     
+ %%%%%%% fin pagina dedicatoria %%%%%%%%
+      
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Ambiente para generar el resumen.
+%
+\newenvironment{tesisresumen}{
+  \thispagestyle{empty}
+    {\Huge \bf Resumen}
+     \vspace*{50\p@}
+         \@mkboth{\uppercase{Resumen}}
+                 {\uppercase{Resumen}}%}
+     \addcontentsline{toc}{chapter}{Resumen}
+     }
+     
+%%%%%% fin resumen %%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%
+%Ambiente para generar el abstract
+%
+\newenvironment{abstract}{
+  \thispagestyle{empty}
+    {\Huge \bf Abstract}
+    \vspace*{50\p@}
+         \@mkboth{\uppercase{Abstract}}
+                 {\uppercase{Abstract}}%}
+     \addcontentsline{toc}{chapter}{Abstract}
+     }
+    %%%%%% fin abstract %%%%%%%%%
+    
+    
+    
+    
+    
+    
+    
+    
+    
