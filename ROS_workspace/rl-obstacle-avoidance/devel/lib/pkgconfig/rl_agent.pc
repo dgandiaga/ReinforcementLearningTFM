@@ -1,8 +1,0 @@
-prefix=/home/cvg/rl-obstacle-avoidance/devel
-
-Name: rl_agent
-Description: Description of rl_agent
-Version: 0.0.0
-Cflags: -I/home/cvg/rl-obstacle-avoidance/src/rl-texplore-ros-pkg/src/rl_agent/include
-Libs: -L/home/cvg/rl-obstacle-avoidance/devel/lib 
-Requires: message_runtime

@@ -1,2 +1,0 @@
-rl-texplore-ros-pkg/src/rl_agent:rl-texplore-ros-pkg/src/rl_common:rl-texplore-ros-pkg/src/rl_env:rl-texplore-ros-pkg/src/rl_experiment:rl-texplore-ros-pkg/src/rl_msgs
--DCATKIN_DEVEL_PREFIX=/home/cvg/rl-obstacle-avoidance/devel -DCMAKE_INSTALL_PREFIX=/home/cvg/rl-obstacle-avoidance/install -G Unix Makefiles

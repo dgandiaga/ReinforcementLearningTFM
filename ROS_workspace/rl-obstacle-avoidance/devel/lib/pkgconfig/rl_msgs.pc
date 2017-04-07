@@ -1,8 +1,0 @@
-prefix=/home/cvg/rl-obstacle-avoidance/devel
-
-Name: rl_msgs
-Description: Description of rl_msgs
-Version: 0.0.0
-Cflags: -I/home/cvg/rl-obstacle-avoidance/devel/include
-Libs: -L/home/cvg/rl-obstacle-avoidance/devel/lib 
-Requires: message_runtime
